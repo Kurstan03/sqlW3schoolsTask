@@ -1,15 +1,47 @@
+
+1. Кардардын атын, шаарын чыгарыныз
 select CustomerName, City from Customers;
+
+2. Кардарлардын олкосун (уникалдуу) чыгарыныз
 select distinct Country from Customers;
+
+3. Кардарлардын олкосунун (уникалдуу) санын чыгарыш керек
 select Country, count(*) as amount from Customers group by Country;
+
+4.Мексикалык кардарларды чыгарыныз
 select * from Customers where Country = 'Mexico';
+
+5. Айдиси#1 болгон кардардын шаарын, дарегин чыгарыныз
 select City, Address from Customers where CustomerId = 1;
+
+6. Германиялык же Испаниялык кардарларды чыгарыныз
 select * from Customers where Country = 'Germany' or Country = 'Spain';
+or
+select * from Customers where Country in ('Germany', 'Spain');
+
+7. Кардарлардын олкосун алфавит менен, атын алфавиттин аягы менен сорттоп чыгарыныз
 select * from Customers order by Country;
 select * from Customers order by CustomerName desc;
+
+8. Дареги жазылбаган кардарларды чыгарыныз
 select * from Customers where Address = null;
+
+9. Продуктулардын минимальный баасын чыгарыныз
 select min(Price) from Products;
+
+10. Канча продукт бар экенин чыгарыныз
 select count(*) as amount_all_products from Products;
+
+11. Баш тамгасы ‘А’ башталган бардык кардарлардын атын чыгарыныз
 select CustomerName from Customers where CustomerName like 'A%';
+
+12. Германиялык, Франциялык, Британиялык кардарларды чыгарыныз
 select * from Customers where Country = 'Germany' or Country = 'France' or Country = 'UK';
+or
+select * from Customers where Country in('Germany', 'France', 'UK');
+
+13. Поставщик менен бир олкодон болгон кардарларды чыгарыныз
 select * from Customers, Suppliers where Customers.Country = Suppliers.Country;
+
+14. 1996-жылкы жалпы заказдарды чыгарыныз
 select * from Orders where OrderDate between '1996-01-01' and '1996-12-31';
